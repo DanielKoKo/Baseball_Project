@@ -1,31 +1,54 @@
 #ifndef BINARYSEARCHTREE_H
 #define BINARYSEARCHTREE_H
+#include <iostream>
+#include <fstream>
+#include "stadium.h"
 
-//Binary tree for American stadiums
-struct AmerNode
+using namespace std;
+
+//Binary tree for all stadiums
+struct StadiumNode
 {
-    AmerNode *left;
-    AmerNode *right;
+    string stadium;            //Name of stadium
+    string team;               //Name of team
+    string address;            //Address
+    string phone_num;          //Phone number
+    string open_date;          //Opening date
+    string capacity;           //Maximum capacity
+
+    //Subtrees
+    StadiumNode *left;
+    StadiumNode *right;
+
+    //Checks if inserting to American node
+    bool is_amer;
 };
-//Binary tree for National stadiums
-struct NatNode
-{
-    NatNode *left;
-    NatNode *right;
-};
-//Binary tree for Major stadiums
 
 class BinarySearchTree
 {
 public:
+    //Default constructor
     BinarySearchTree();
 
-    //Inserts sorted stadiums to binary tree
-    void insert();
+    //Destructor
+    ~BinarySearchTree();
+
+    //Calls read_files function from Stadium class
+    void read_files();
+
+    //Inserts new node to binary tree
+    void insertNode(StadiumNode *&, bool);
+
+    void displayPreOrder() const { displayPreOrder(stadiumRoot); }
 
 private:
-    AmerNode *amerRoot;   //Root of Anerican stadium tree
-    NatNode *natRoot;     //Root of National stadium tree
+    StadiumNode *stadiumRoot;  //Root of Major stadium tree
+
+    //Inserts sorted stadiums to binary tree
+    void insert(StadiumNode *&, StadiumNode *&);
+
+    //Displays tree pre-order
+        void displayPreOrder(StadiumNode *) const;
 };
 
 

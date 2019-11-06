@@ -38,7 +38,7 @@ void Stadium::read_files()
 
         //Reads two lines for address
         getline(amerFile, str);
-        address += str;
+        address = address + str + " ";
         getline(amerFile, str);
         address += str;
         s->address = address;
@@ -63,6 +63,7 @@ void Stadium::read_files()
         cout << s->open_date << endl;
         cout << s->capacity << endl;
         cout << endl;
+
     }
 
     amerFile.close();
