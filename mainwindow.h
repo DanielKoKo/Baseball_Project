@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "binarysearchtree.h"
+#include "stadium.h"
+#include "souvenir.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -13,9 +16,16 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
+
     ~MainWindow();
+
+    //Displays all stadiums in preorder
+    void displayPreOrder(StadiumNode *) const;
 
 private:
     Ui::MainWindow *ui;
+
+    BinarySearchTree b_amer; //American binary tree
+    BinarySearchTree b_nat;  //National binary tree
 };
 #endif // MAINWINDOW_H

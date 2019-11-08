@@ -19,11 +19,13 @@ SOURCES += \
     binarysearchtree.cpp \
     main.cpp \
     mainwindow.cpp \
+    souvenir.cpp \
     stadium.cpp
 
 HEADERS += \
     binarysearchtree.h \
     mainwindow.h \
+    souvenir.h \
     stadium.h
 
 FORMS += \

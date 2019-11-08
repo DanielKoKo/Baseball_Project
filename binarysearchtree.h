@@ -1,4 +1,4 @@
-#ifndef BINARYSEARCHTREE_H
+ #ifndef BINARYSEARCHTREE_H
 #define BINARYSEARCHTREE_H
 #include <iostream>
 #include <fstream>
@@ -9,12 +9,12 @@ using namespace std;
 //Binary tree for all stadiums
 struct StadiumNode
 {
-    string stadium;            //Name of stadium
-    string team;               //Name of team
-    string address;            //Address
-    string phone_num;          //Phone number
-    string open_date;          //Opening date
-    string capacity;           //Maximum capacity
+    string stadium;        //Name of stadium
+    string team;           //Name of team
+    string address;        //Address
+    string phone_num;      //Phone number
+    string open_date;      //Opening date
+    string capacity;       //Maximum capacity
 
     //Subtrees
     StadiumNode *left;
@@ -27,6 +27,9 @@ struct StadiumNode
 class BinarySearchTree
 {
 public:
+    //Root is public so we can access it in mainWindow class
+    StadiumNode *stadiumRoot;  //Root of Major stadium tree
+
     //Default constructor
     BinarySearchTree();
 
@@ -42,8 +45,6 @@ public:
     void displayPreOrder() const { displayPreOrder(stadiumRoot); }
 
 private:
-    StadiumNode *stadiumRoot;  //Root of Major stadium tree
-
     //Inserts sorted stadiums to binary tree
     void insert(StadiumNode *&, StadiumNode *&);
 

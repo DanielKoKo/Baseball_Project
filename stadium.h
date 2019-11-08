@@ -9,6 +9,10 @@ using namespace std;
 class Stadium
 {
 private:  
+    Souvenir s;                //Souvenir for the stadium
+
+public:
+    //Variables are public so we can access them in mainWindow
     string stadium;            //Name of stadium
     string team;               //Name of team
     string address;            //Address
@@ -16,8 +20,6 @@ private:
     string open_date;          //Opening date
     string capacity;           //Maximum capacity
 
-    Souvenir s;                //Souvenir for the stadium
-public:
     //Default constructor
     Stadium();
 
