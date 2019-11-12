@@ -94,29 +94,47 @@ void BinarySearchTree::insert(StadiumNode *&nodePtr, StadiumNode *&newNode)
 
 void BinarySearchTree::sort(StadiumNode *nodePtr)
 {
-    stack<StadiumNode *> s;
-    StadiumNode *curr = nodePtr;
 
-    //delete stadiumRoot;
-    stadiumRoot = new StadiumNode();
+    if (!nodePtr)
+        return;
 
-    while (curr || !s.empty())
-    {
-        while (curr)
-        {
-            s.push(curr);
-            curr = curr->left;
-        }
+//    stack<StadiumNode *> s;
+    StadiumNode *newNode = new StadiumNode();
 
-        curr = s.top();
-        stadiumRoot = curr;
-        s.pop();
+//    //delete stadiumRoot;
+//    stadiumRoot = new StadiumNode();
 
-        insert(stadiumRoot, curr);
+//    while (curr || !s.empty())
+//    {
+//        while (curr)
+//        {
+//            s.push(curr);
+//            curr = curr->left;
+//        }
 
-        curr = curr->right;
-    }
-    cout << endl;
+//        curr = s.top();
+//        stadiumRoot = curr;
+//        s.pop();
+
+//        insert(stadiumRoot, curr);
+
+//        curr = curr->right;
+//    }
+//    cout << endl;
+
+    sort(nodePtr->left);
+    newNode = nodePtr;
+//    newStadium.push_back(nodePtr->s);
+//    newNode->s.stadium = newStadium.at(newStadium.size() - 1).stadium;
+//    newNode->s.team = newStadium.at(newStadium.size() - 1).team;
+//    newNode->s.address = newStadium.at(newStadium.size() - 1).address;
+//    newNode->s.phone_num = newStadium.at(newStadium.size() - 1).phone_num;
+//    newNode->s.open_date = newStadium.at(newStadium.size() - 1).open_date;
+//    newNode->s.capacity = newStadium.at(newStadium.size() - 1).capacity;
+//    newNode->s.is_amer = newStadium.at(newStadium.size() - 1).is_amer;
+    cout << newNode->s.stadium << endl;
+    //insert(allStadiums, newNode);
+    sort(nodePtr->right);
 }
 
 bool BinarySearchTree::operator<(StadiumNode *compare) const

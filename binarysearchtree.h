@@ -44,7 +44,7 @@ public:
 
 private:
     vector<Stadium> newStadium;
-    int size;
+    StadiumNode *allStadiums = new StadiumNode();
 
     //Inserts sorted stadiums to binary tree
     void insert(StadiumNode *&, StadiumNode *&);
