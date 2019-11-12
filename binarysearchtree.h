@@ -1,7 +1,9 @@
-#ifndef BINARYSEARCHTREE_H
+ #ifndef BINARYSEARCHTREE_H
 #define BINARYSEARCHTREE_H
 #include <iostream>
 #include <fstream>
+#include <vector>
+#include <stack>
 #include "stadium.h"
 
 using namespace std;
@@ -9,12 +11,7 @@ using namespace std;
 //Binary tree for all stadiums
 struct StadiumNode
 {
-    string stadium;            //Name of stadium
-    string team;               //Name of team
-    string address;            //Address
-    string phone_num;          //Phone number
-    string open_date;          //Opening date
-    string capacity;           //Maximum capacity
+    Stadium s; //Stadium to store
 
     //Subtrees
     StadiumNode *left;
@@ -27,28 +24,37 @@ struct StadiumNode
 class BinarySearchTree
 {
 public:
+    StadiumNode *stadiumRoot;  //Root of Major stadium tree
+
     //Default constructor
     BinarySearchTree();
 
     //Destructor
     ~BinarySearchTree();
 
-    //Calls read_files function from Stadium class
-    void read_files();
+    //Reads specified file and stores stadium information
+    void read_files(string file_name);
 
-    //Inserts new node to binary tree
-    void insertNode(StadiumNode *&, bool);
+    //Reads specified files and stores all stadium information
+    void read_allFiles(string file_name1, string file_name2);
+
+    void sort(StadiumNode *nodePtr);
 
     void displayPreOrder() const { displayPreOrder(stadiumRoot); }
 
 private:
-    StadiumNode *stadiumRoot;  //Root of Major stadium tree
+    vector<Stadium> newStadium;
+    int size;
 
     //Inserts sorted stadiums to binary tree
     void insert(StadiumNode *&, StadiumNode *&);
 
     //Displays tree pre-order
-        void displayPreOrder(StadiumNode *) const;
+    void displayPreOrder(StadiumNode *) const;
+
+    bool operator<(StadiumNode *) const;
+
+    StadiumNode operator=(StadiumNode *);
 };
 
 

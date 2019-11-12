@@ -10,6 +10,7 @@ Stadium::Stadium()
     phone_num = "";
     open_date = "";
     capacity = "";
+    is_amer = false;
 }
 
 void Stadium::read_files()

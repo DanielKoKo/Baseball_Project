@@ -10,35 +10,17 @@ BinarySearchTree::~BinarySearchTree()
     delete stadiumRoot;
 }
 
-void BinarySearchTree::insertNode(StadiumNode *&nodePtr, bool is_amer)
+void BinarySearchTree::read_files(string file_name)
 {
-    StadiumNode *newNode = new StadiumNode;
-
-    //Sets the node as American if true
-    if (is_amer)
-        newNode->is_amer = true;
-
-    //newNode->value = value;
-    newNode->left = newNode->right = nullptr;
-
-    //Insert the Node
-    insert(stadiumRoot, newNode);
-}
-
-void BinarySearchTree::read_files()
-{
-    ifstream amerFile;  //American stadiums file
-    ifstream natFile;   //National stadiums file
+    ifstream file;      //Input file
     string str;         //String to read
     string address;     //Address of stadium
 
-    amerFile.open("/Users/daniel/Desktop/CS008/Assignments"
-                  "/Proj_Baseball/americanStadiums.txt");
-    natFile.open("/Users/daniel/Desktop/CS008/Assignments"
-                 "/Proj_Baseball/nationalStadiums.txt");
+    file.open(file_name);
 
-    while (!amerFile.eof())
+    while (!file.eof())
     {
+        //Creates new node to store in binary tree
         StadiumNode *newNode = new StadiumNode;
 
         //New node is from american stadiums' file
@@ -47,31 +29,38 @@ void BinarySearchTree::read_files()
         address = "";
         str = "";
 
-        getline(amerFile, str);
-        newNode->stadium = str;
-        getline(amerFile, str);
-        newNode->team = str;
+        getline(file, str);
+        newNode->s.stadium = str;
+        getline(file, str);
+        newNode->s.team = str;
 
         //Reads two lines for address
-        getline(amerFile, str);
+        getline(file, str);
         address = address + str + " ";
-        getline(amerFile, str);
+        getline(file, str);
         address += str;
-        newNode->address = address;
+        newNode->s.address = address;
 
-        getline(amerFile, str);
-        newNode->phone_num = str;
+        getline(file, str);
+        newNode->s.phone_num = str;
 
-        //Reads in date
-        getline(amerFile, str);
-        newNode->open_date = str;
+        //Reads in date and removes extra characters
+        file >> str;
+        file >> str;
+        getline(file, str);
+        str.erase(0, 1);
+        newNode->s.open_date = str;
 
-        //Reads in max capacity
-        getline(amerFile, str);
-        newNode->capacity = str;
+        //Reads in max capacity and removes extra characters
+        file >> str;
+        file >> str;
+        getline(file, str);
+        str.erase(0, 1);
+        newNode->s.capacity = str;
 
         //Reads empty line
-        getline(amerFile, str);
+        getline(file, str);
+
 
         //Initializes newNode
         newNode->left = newNode->right = nullptr;
@@ -80,55 +69,89 @@ void BinarySearchTree::read_files()
         insert(stadiumRoot, newNode);
     }
 
-    amerFile.close();
-    natFile.close();
+    file.close();
 }
 
-void BinarySearchTree::insert(StadiumNode *&nodePtr,
-                              StadiumNode *&newNode)
+void BinarySearchTree::read_allFiles(string file_name1, string file_name2)
+{
+    string str;         //String to read
+    string address;     //Address of stadium
+
+    read_files(file_name1);
+    read_files(file_name2);
+}
+
+void BinarySearchTree::insert(StadiumNode *&nodePtr, StadiumNode *&newNode)
 {
     if (nodePtr == nullptr)
             nodePtr = newNode;
-    else if (newNode->stadium < nodePtr->stadium)
+    //Compares stadium names for insertion
+    else if (newNode->s.stadium.at(0) < nodePtr->s.stadium.at(0))
         insert(nodePtr->left, newNode);
     else
         insert(nodePtr->right, newNode);
 }
 
+void BinarySearchTree::sort(StadiumNode *nodePtr)
+{
+    stack<StadiumNode *> s;
+    StadiumNode *curr = nodePtr;
+
+    //delete stadiumRoot;
+    stadiumRoot = new StadiumNode();
+
+    while (curr || !s.empty())
+    {
+        while (curr)
+        {
+            s.push(curr);
+            curr = curr->left;
+        }
+
+        curr = s.top();
+        stadiumRoot = curr;
+        s.pop();
+
+        insert(stadiumRoot, curr);
+
+        curr = curr->right;
+    }
+    cout << endl;
+}
+
+bool BinarySearchTree::operator<(StadiumNode *compare) const
+{
+    return (stadiumRoot->s.address < compare->s.stadium);
+}
+
+StadiumNode BinarySearchTree::operator=(StadiumNode *nodePtr)
+{
+    stadiumRoot->s.stadium = nodePtr->s.stadium;
+    stadiumRoot->s.team = nodePtr->s.team;
+    stadiumRoot->s.address = nodePtr->s.address;
+    stadiumRoot->s.phone_num = nodePtr->s.phone_num;
+    stadiumRoot->s.open_date = nodePtr->s.open_date;
+    stadiumRoot->s.capacity = nodePtr->s.capacity;
+
+    return *stadiumRoot;
+}
+
+/***********
+ * TESTING *
+ * *********/
 void BinarySearchTree::displayPreOrder(StadiumNode *nodePtr) const
 {
     if (nodePtr)
     {
-        cout << nodePtr->stadium << endl;
-        cout << nodePtr->team << endl;
-        cout << nodePtr->address << endl;
-        cout << nodePtr->phone_num << endl;
-        cout << nodePtr->open_date << endl;
-        cout << nodePtr->capacity << endl;
+        cout << nodePtr->s.stadium << endl;
+        cout << nodePtr->s.team << endl;
+        cout << nodePtr->s.address << endl;
+        cout << nodePtr->s.phone_num << endl;
+        cout << nodePtr->s.open_date << endl;
+        cout << nodePtr->s.capacity << endl;
         cout << endl << endl;
 
         displayPreOrder(nodePtr->left);
         displayPreOrder(nodePtr->right);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
