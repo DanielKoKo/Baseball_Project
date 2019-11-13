@@ -84,9 +84,7 @@ void BinarySearchTree::read_files(string file_name, string type)
 
         }
         else if (type == "date")
-        {
             insertDate(stadiumRoot, newNode);
-        }
         else if (type == "capacity")
             insertCap(stadiumRoot, newNode);
     }
@@ -127,7 +125,7 @@ void BinarySearchTree::insert(StadiumNode *&nodePtr, StadiumNode *&newNode)
     if (nodePtr == nullptr)
             nodePtr = newNode;
     //Compares stadium names for insertion
-    else if (newNode->s.stadium.at(0) < nodePtr->s.stadium.at(0))
+    else if (newNode->s.team < nodePtr->s.team)
         insert(nodePtr->left, newNode);
     else
         insert(nodePtr->right, newNode);

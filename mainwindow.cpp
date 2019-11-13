@@ -125,7 +125,7 @@ void MainWindow::on_american_button_clicked()
     //Clears previous team display
     ui->stadium_TextBrowser->clear();
 
-    displayPreOrder(b_amer.stadiumRoot);
+    displayInOrder(b_amer.stadiumRoot);
 }
 
 void MainWindow::on_national_button_clicked()
@@ -136,7 +136,7 @@ void MainWindow::on_national_button_clicked()
     //Clears previous team display
     ui->stadium_TextBrowser->clear();
 
-    displayPreOrder(b_nat.stadiumRoot);
+    displayInOrder(b_nat.stadiumRoot);
 }
 
 void MainWindow::on_major_button_clicked()
