@@ -48,10 +48,6 @@ void BinarySearchTree::read_files(string file_name, string type)
         file >> str;
         file >> str;
         getline(file, str);
-        while (str.at(0) != ',')
-            str.erase(0, 1);
-
-        str.erase(0, 2);
         newNode->s.open_date = str;
 
         //Reads in max capacity and removes extra characters
@@ -92,6 +88,7 @@ void BinarySearchTree::read_allFiles(string file_name1, string file_name2,
     string str;         //String to read
     string address;     //Address of stadium
 
+    //Checks which type of comparison to run when storing stadiums
     if (type == "none")
     {
         read_files(file_name1, "none");
@@ -137,10 +134,28 @@ void BinarySearchTree::insertCap(StadiumNode *&nodePtr, StadiumNode *&newNode)
 
 void BinarySearchTree::insertDate(StadiumNode *&nodePtr, StadiumNode *&newNode)
 {
+    string str1 = newNode->s.open_date; //newNode's date
+    string str2;                        //Current node's date
+
+    //Checks if current node contains a date for comparison
+    if (nodePtr)
+    {
+        str2 = nodePtr->s.open_date;
+        while (str2.at(0) != ',')
+            str2.erase(0, 1);
+
+        str2.erase(0, 1);
+    }
+
+    //Removes all characters except year for comparison
+    while (str1.at(0) != ',')
+        str1.erase(0, 1);
+    str1.erase(0, 1);
+
     if (nodePtr == nullptr)
         nodePtr = newNode;
     //Compares stadium names for insertion
-    else if (newNode->s.open_date < nodePtr->s.open_date)
+    else if (str1 < str2)
         insertDate(nodePtr->left, newNode);
     else
         insertDate(nodePtr->right, newNode);
