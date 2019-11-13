@@ -2,14 +2,14 @@
 #define STADIUM_H
 #include <iostream>
 #include <string>
-#include "souvenir.h"
+#include "souvenircontainer.h"
 
 using namespace std;
 
 class Stadium
 {
 private:  
-    Souvenir s;                //Souvenir for the stadium
+    //SouvenirContainer s;                //Souvenir for the stadium
 
 public:
     //Variables are public so we can access them in mainWindow
@@ -33,10 +33,10 @@ public:
     void add_team();
 
     //Sets souvenirs
-    void setSouvenirs(Souvenir *&s);
+    //void setSouvenirs(Souvenir *&s);
 
     //Gets souvenirs
-    Souvenir getSouvenir(Souvenir *&s);
+    //Souvenir getSouvenir(Souvenir *&s);
 };
 
 

@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include "binarysearchtree.h"
 #include "stadium.h"
-#include "souvenir.h"
+#include "souvenircontainer.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -22,6 +22,8 @@ public:
     //Displays all stadiums in preorder
     void displayPreOrder(StadiumNode *) const;
 
+    void displayInOrder(StadiumNode *) const;
+
 private slots:
     void on_american_button_clicked();
 
@@ -29,11 +31,18 @@ private slots:
 
     void on_major_button_clicked();
 
+    void on_capacity_button_clicked();
+
+    void on_date_button_clicked();
+
 private:
     Ui::MainWindow *ui;
 
     BinarySearchTree b_amer;   //American binary tree
     BinarySearchTree b_nat;    //National binary tree
     BinarySearchTree b_major;  //All stadiums binary tree
+    BinarySearchTree b_grass;
+    BinarySearchTree b_capacity;
+    BinarySearchTree b_date;
 };
 #endif // MAINWINDOW_H

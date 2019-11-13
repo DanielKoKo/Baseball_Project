@@ -16,9 +16,6 @@ struct StadiumNode
     //Subtrees
     StadiumNode *left;
     StadiumNode *right;
-
-    //Checks if inserting to American node
-    bool is_amer;
 };
 
 class BinarySearchTree
@@ -33,12 +30,14 @@ public:
     ~BinarySearchTree();
 
     //Reads specified file and stores stadium information
-    void read_files(string file_name);
+    void read_files(string file_name, string);
 
     //Reads specified files and stores all stadium information
-    void read_allFiles(string file_name1, string file_name2);
+    void read_allFiles(string file_name1, string file_name2, string);
 
     void sort(StadiumNode *nodePtr);
+
+    void getDate(StadiumNode *nodePtr);
 
     void displayPreOrder() const { displayPreOrder(stadiumRoot); }
 
@@ -48,6 +47,10 @@ private:
 
     //Inserts sorted stadiums to binary tree
     void insert(StadiumNode *&, StadiumNode *&);
+
+    void insertCap(StadiumNode *&, StadiumNode *&);
+
+    void insertDate(StadiumNode *&, StadiumNode *&);
 
     //Displays tree pre-order
     void displayPreOrder(StadiumNode *) const;
