@@ -5,6 +5,10 @@ San Francisco, CA 94107
 (415) 972-2000
 Opened - April 11, 2000
 Capacity - 41,915
+Baseball cap			$25.99
+Baseball bat			$35.35
+Team pennant                    $12.99
+Autographed baseball            $19.99
 
 Busch Stadium
 St. Louis Cardinals
@@ -13,6 +17,10 @@ St. Louis, MO 63102
 (314) 345-9600
 Opened - April 10, 2006
 Capacity - 46,861
+Baseball cap			$25.99
+Baseball bat			$35.35
+Team pennant			$12.99
+Autographed baseball		$19.99
 
 Chase Field
 Arizona Diamondbacks
@@ -21,6 +29,10 @@ Phoenix, AZ 85004
 (602) 462-6500
 Opened - March 31, 1998
 Capacity - 48,633
+Baseball cap			$25.99
+Baseball bat			$35.35
+Team pennant			$12.99
+Autographed baseball		$19.99
 
 Citi Field
 New York Mets
@@ -29,6 +41,10 @@ Queens, NY 11368
 (718) 507-6387
 Opened - April 13, 2009
 Capacity - 41,922
+Baseball cap			$25.99
+Baseball bat			$35.35
+Team pennant			$12.99
+Autographed baseball		$19.99
 
 Citizens Bank Park
 Philadelphia Phillies
@@ -37,6 +53,10 @@ Philadelphia, PA 19148
 (215) 463-1000
 Opened - April 3, 2004
 Capacity - 43,651
+Baseball cap			$25.99
+Baseball bat			$35.35
+Team pennant			$12.99
+Autographed baseball		$19.99
 
 Coors Field
 Colorado Rockies
@@ -45,6 +65,10 @@ Denver, CO 80205
 (303) 292-0200
 Opened - April 26, 1995
 Capacity - 50,480
+Baseball cap			$25.99
+Baseball bat			$35.35
+Team pennant			$12.99
+Autographed baseball		$19.99
 
 Dodger Stadium
 Los Angeles Dodgers
@@ -53,6 +77,10 @@ Los Angeles, CA 90090
 (323) 224-1507
 Opened - April 10, 1962
 Capacity - 56,000
+Baseball cap			$25.99
+Baseball bat			$35.35
+Team pennant			$12.99
+Autographed baseball		$19.99
 
 Great America Ball Park
 Cincinnati Reds
@@ -61,6 +89,10 @@ Cincinnati, OH 45202
 (513) 381-7337
 Opened - March 31, 2003
 Capacity - 42,319
+Baseball cap			$25.99
+Baseball bat			$35.35
+Team pennant			$12.99
+Autographed baseball		$19.99
 
 Marlins Park
 Miami Marlins
@@ -69,6 +101,10 @@ Miami, FL 33125
 (305)480-1300
 Opened - April 4, 2012
 Capacity - 37,442
+Baseball cap			$25.99
+Baseball bat			$35.35
+Team pennant			$12.99
+Autographed baseball		$19.99
 
 Miller Park
 Milwaukee Brewers
@@ -77,6 +113,10 @@ Milwaukee, WI 53214
 (414) 902-4400
 Opened - April 6, 2001
 Capacity - 41,900
+Baseball cap			$25.99
+Baseball bat			$35.35
+Team pennant			$12.99
+Autographed baseball		$19.99
 
 Nationals Park
 Washington Nationals
@@ -85,6 +125,10 @@ Washington, DC 20003
 (202) 675-6287
 Opened - March 30, 2008
 Capacity - 41,418
+Baseball cap			$25.99
+Baseball bat			$35.35
+Team pennant			$12.99
+Autographed baseball		$19.99
 
 Petco Park
 San Diego Padres
@@ -93,6 +137,10 @@ San Diego, CA 92101
 (619) 795-5000
 Opened - April 8, 2004
 Capacity - 42,524
+Baseball cap			$25.99
+Baseball bat			$35.35
+Team pennant			$12.99
+Autographed baseball		$19.99
 
 PNC Park
 Pittsburgh Pirates
@@ -101,6 +149,10 @@ Pittsburgh, PA 15212
 (412) 321-2827
 Opened - March 31, 2001
 Capacity - 38,362
+Baseball cap			$25.99
+Baseball bat			$35.35
+Team pennant			$12.99
+Autographed baseball		$19.99
 
 Turner Field 
 Atlanta Braves
@@ -109,6 +161,10 @@ Atlanta, GA 30315
 (404) 522-7630
 Opened - March 29, 1997
 Capacity - 49,586
+Baseball cap			$25.99
+Baseball bat			$35.35
+Team pennant			$12.99
+Autographed baseball		$19.99
 
 Wrigley Field
 Chicago Cubs
@@ -117,3 +173,7 @@ Chicago, IL 60613
 (773) 404-2827
 Opened - April 23, 1914
 Capacity - 42,374
+Baseball cap			$25.99
+Baseball bat			$35.35
+Team pennant			$12.99
+Autographed baseball		$19.99

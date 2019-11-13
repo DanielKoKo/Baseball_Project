@@ -11,8 +11,9 @@ using namespace std;
 //Binary tree for all stadiums
 struct StadiumNode
 {
-    Stadium s; //Stadium to store
-
+    Stadium s;                   //Stadium to store
+    //SouvenirContainer souvenir;  //Souvenir to store
+    //vector<SouvenirContainer> souvenir;
     //Subtrees
     StadiumNode *left;
     StadiumNode *right;
@@ -34,10 +35,6 @@ public:
 
     //Reads specified files and stores all stadium information
     void read_allFiles(string file_name1, string file_name2, string);
-
-    void sort(StadiumNode *nodePtr);
-
-    void getDate(StadiumNode *nodePtr);
 
     void displayPreOrder() const { displayPreOrder(stadiumRoot); }
 

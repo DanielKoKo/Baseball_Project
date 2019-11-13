@@ -6,6 +6,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->incorrect_label->hide();
 
     b_amer.read_files("/Users/daniel/Desktop/CS008/Assignments"
                       "/Proj_Baseball/americanStadiums.txt", "none");
@@ -32,6 +33,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::displayPreOrder(StadiumNode *nodePtr) const
 {
+    ui->incorrect_label->hide();
     if (nodePtr)
     {
         //Outputs stadium's info to textBrowser
@@ -61,6 +63,7 @@ void MainWindow::displayPreOrder(StadiumNode *nodePtr) const
 
 void MainWindow::displayInOrder(StadiumNode *nodePtr) const
 {
+    ui->incorrect_label->hide();
     if (nodePtr)
     {
         displayInOrder(nodePtr->left);
@@ -88,8 +91,35 @@ void MainWindow::displayInOrder(StadiumNode *nodePtr) const
     //Shows the top of the textBrowser first
     ui->stadium_TextBrowser->reload();
 }
+
+void MainWindow::displaySouvenirs(StadiumNode *nodePtr) const
+{
+    if (nodePtr)
+    {
+        displaySouvenirs(nodePtr->left);
+
+        //Outputs stadium's info to textBrowser
+        ui->souvenir_TextBrowser
+              ->append(QString::fromStdString(nodePtr->s.team));
+        ui->souvenir_TextBrowser->append("------------------------------");
+        for (unsigned i = 0; i < b_major.stadiumRoot->s.souvenir.size(); i++)
+        {
+            ui->souvenir_TextBrowser
+              ->append(QString::fromStdString(b_major.stadiumRoot
+                                              ->s.souvenir.at(i)));
+        }
+        ui->souvenir_TextBrowser->append("\n");
+
+        displaySouvenirs(nodePtr->right);
+    }
+
+    //Shows the top of the textBrowser first
+    ui->stadium_TextBrowser->reload();
+}
+
 void MainWindow::on_american_button_clicked()
 {
+    ui->incorrect_label->hide();
     ui->stadium_label->setText("American Stadiums \n Sorted by Team Name");
 
     //Clears previous team display
@@ -100,6 +130,7 @@ void MainWindow::on_american_button_clicked()
 
 void MainWindow::on_national_button_clicked()
 {
+    ui->incorrect_label->hide();
     ui->stadium_label->setText("National Stadiums \n Sorted by Team Name");
 
     //Clears previous team display
@@ -110,6 +141,7 @@ void MainWindow::on_national_button_clicked()
 
 void MainWindow::on_major_button_clicked()
 {
+    ui->incorrect_label->hide();
     ui->stadium_label->setText("Major Stadiums \n Sorted by Team Name");
 
     //Clears previous team display
@@ -120,6 +152,7 @@ void MainWindow::on_major_button_clicked()
 
 void MainWindow::on_capacity_button_clicked()
 {
+    ui->incorrect_label->hide();
     ui->stadium_label->setText("All Stadiums \n Sorted by Capacity");
 
     //Clears previous team display
@@ -130,10 +163,31 @@ void MainWindow::on_capacity_button_clicked()
 
 void MainWindow::on_date_button_clicked()
 {
+    ui->incorrect_label->hide();
     ui->stadium_label->setText("All Stadiums \n Sorted by Date");
 
     //Clears previous team display
     ui->stadium_TextBrowser->clear();
 
     displayInOrder(b_date.stadiumRoot);
+}
+
+void MainWindow::on_admin_button_clicked()
+{
+    ui->incorrect_label->hide();
+    //Checks if password is correct
+    if (ui->password_textEdit->toPlainText() == password)
+        ui->stack1->setCurrentIndex(1);
+    else
+        ui->incorrect_label->show();
+}
+
+void MainWindow::on_back_button_clicked()
+{
+    ui->stack1->setCurrentIndex(0);
+}
+
+void MainWindow::on_souvenir_button_clicked()
+{
+    displaySouvenirs(b_major.stadiumRoot);
 }

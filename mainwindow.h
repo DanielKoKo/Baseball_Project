@@ -24,6 +24,8 @@ public:
 
     void displayInOrder(StadiumNode *) const;
 
+    void displaySouvenirs(StadiumNode *) const;
+
 private slots:
     void on_american_button_clicked();
 
@@ -35,14 +37,21 @@ private slots:
 
     void on_date_button_clicked();
 
+    void on_admin_button_clicked();
+
+    void on_back_button_clicked();
+
+    void on_souvenir_button_clicked();
+
 private:
     Ui::MainWindow *ui;
 
-    BinarySearchTree b_amer;   //American binary tree
-    BinarySearchTree b_nat;    //National binary tree
-    BinarySearchTree b_major;  //All stadiums binary tree
-    BinarySearchTree b_grass;
-    BinarySearchTree b_capacity;
-    BinarySearchTree b_date;
+    BinarySearchTree b_amer;       //American binary tree
+    BinarySearchTree b_nat;        //National binary tree
+    BinarySearchTree b_major;      //All stadiums binary tree
+    BinarySearchTree b_grass;      //All grass stadiums
+    BinarySearchTree b_capacity;   //All stadiums (capacity)
+    BinarySearchTree b_date;       //All stadiums (date)
+    QString password = "12345";    //Hard-coded password for admin
 };
 #endif // MAINWINDOW_H

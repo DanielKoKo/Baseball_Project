@@ -2,6 +2,7 @@
 #define STADIUM_H
 #include <iostream>
 #include <string>
+#include <vector>
 #include "souvenircontainer.h"
 
 using namespace std;
@@ -20,6 +21,7 @@ public:
     string open_date;          //Opening date
     string capacity;           //Maximum capacity
     bool is_amer;              //Checks if stadium is American
+    vector<string> souvenir;
     //Default constructor
     Stadium();
 
@@ -33,7 +35,7 @@ public:
     void add_team();
 
     //Sets souvenirs
-    //void setSouvenirs(Souvenir *&s);
+    //void setSouvenirs(SouvenirContainer *&s);
 
     //Gets souvenirs
     //Souvenir getSouvenir(Souvenir *&s);
