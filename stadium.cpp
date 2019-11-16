@@ -11,6 +11,7 @@ Stadium::Stadium()
     open_date = "";
     capacity = "";
     is_amer = false;
+    is_grass = false;
 }
 
 void Stadium::read_files()

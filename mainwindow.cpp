@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->incorrect_label->hide();
+    //ui->label->setScaledContents(true);
 
     b_amer.read_files("/Users/daniel/Desktop/CS008/Assignments"
                       "/Proj_Baseball/americanStadiums.txt", "none");
@@ -16,6 +17,10 @@ MainWindow::MainWindow(QWidget *parent)
                           "/Proj_Baseball/americanStadiums.txt",
                           "/Users/daniel/Desktop/CS008/Assignments"
                           "/Proj_Baseball/nationalStadiums.txt", "none");
+    b_grass.read_allFiles("/Users/daniel/Desktop/CS008/Assignments"
+                          "/Proj_Baseball/americanStadiums.txt",
+                          "/Users/daniel/Desktop/CS008/Assignments"
+                          "/Proj_Baseball/nationalStadiums.txt", "grass");
     b_date.read_allFiles("/Users/daniel/Desktop/CS008/Assignments"
                          "/Proj_Baseball/americanStadiums.txt",
                          "/Users/daniel/Desktop/CS008/Assignments"
@@ -92,6 +97,40 @@ void MainWindow::displayInOrder(StadiumNode *nodePtr) const
     ui->stadium_TextBrowser->reload();
 }
 
+void MainWindow::displayGrass(StadiumNode *nodePtr) const
+{
+    ui->incorrect_label->hide();
+    if (nodePtr)
+    {
+        if (nodePtr->s.is_grass)
+        {
+            displayGrass(nodePtr->left);
+            //cout << "Grass!" << endl;
+            //Outputs stadium's info to textBrowser if it's grass
+            ui->stadium_TextBrowser
+                  ->append(QString::fromStdString(nodePtr->s.stadium));
+            ui->stadium_TextBrowser
+                  ->append(QString::fromStdString(nodePtr->s.team));
+            ui->stadium_TextBrowser
+                  ->append(QString::fromStdString(nodePtr->s.address));
+            ui->stadium_TextBrowser
+                  ->append(QString::fromStdString(nodePtr->s.phone_num));
+            ui->stadium_TextBrowser
+                  ->append("Opened - "
+                           + QString::fromStdString(nodePtr->s.open_date));
+            ui->stadium_TextBrowser
+                  ->append("Capacity - "
+                           + QString::fromStdString(nodePtr->s.capacity));
+            ui->stadium_TextBrowser->append("Grass");
+            ui->stadium_TextBrowser->append("\n");
+            displayGrass(nodePtr->right);
+        }
+    }
+
+    //Shows the top of the textBrowser first
+    ui->stadium_TextBrowser->reload();
+}
+
 void MainWindow::displaySouvenirs(StadiumNode *nodePtr) const
 {
     if (nodePtr)
@@ -114,7 +153,7 @@ void MainWindow::displaySouvenirs(StadiumNode *nodePtr) const
     }
 
     //Shows the top of the textBrowser first
-    ui->stadium_TextBrowser->reload();
+    ui->souvenir_TextBrowser->reload();
 }
 
 void MainWindow::on_american_button_clicked()
@@ -184,10 +223,32 @@ void MainWindow::on_admin_button_clicked()
 
 void MainWindow::on_back_button_clicked()
 {
+    //Resets page number to 0
     ui->stack1->setCurrentIndex(0);
 }
 
 void MainWindow::on_souvenir_button_clicked()
 {
     displaySouvenirs(b_major.stadiumRoot);
+}
+
+void MainWindow::on_souvenir_button_2_clicked()
+{
+    ui->stack1->setCurrentIndex(2);
+}
+
+void MainWindow::on_back_button_2_clicked()
+{
+    ui->stack1->setCurrentIndex(0);
+}
+
+void MainWindow::on_grass_button_clicked()
+{
+    ui->incorrect_label->hide();
+    ui->stadium_label->setText("All Grass Stadiums \n Sorted by Team Name");
+
+    //Clears previous team display
+    ui->stadium_TextBrowser->clear();
+
+    displayInOrder(b_grass.stadiumRoot);
 }

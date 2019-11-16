@@ -47,6 +47,8 @@ private:
 
     void insertCap(StadiumNode *&, StadiumNode *&);
 
+    void insertGrass(StadiumNode *&, StadiumNode *&);
+
     void insertDate(StadiumNode *&, StadiumNode *&);
 
     //Displays tree pre-order

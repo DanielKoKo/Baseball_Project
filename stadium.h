@@ -21,7 +21,10 @@ public:
     string open_date;          //Opening date
     string capacity;           //Maximum capacity
     bool is_amer;              //Checks if stadium is American
+    bool is_grass;             //Checks if stadium is grass
+
     vector<string> souvenir;
+
     //Default constructor
     Stadium();
 

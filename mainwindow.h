@@ -26,6 +26,8 @@ public:
 
     void displaySouvenirs(StadiumNode *) const;
 
+    void displayGrass(StadiumNode *) const;
+
 private slots:
     void on_american_button_clicked();
 
@@ -42,6 +44,12 @@ private slots:
     void on_back_button_clicked();
 
     void on_souvenir_button_clicked();
+
+    void on_souvenir_button_2_clicked();
+
+    void on_back_button_2_clicked();
+
+    void on_grass_button_clicked();
 
 private:
     Ui::MainWindow *ui;
